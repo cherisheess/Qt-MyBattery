@@ -1,2 +1,2 @@
-# Qt-zaxiang
-Some blog code records about Qt CSDN
+# Qt-自定义控件
+自定义控件练习代码
