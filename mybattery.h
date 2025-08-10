@@ -15,12 +15,27 @@ class MyBattery;
 }
 QT_END_NAMESPACE
 
+/**
+ * \class MyBattery
+ * \brief A custom Qt Widget that renders a battery indicator with gradient fill and alarm coloring.
+ *
+ * The widget draws a rounded battery frame, a gradient-filled level bar that changes color based
+ * on an alarm threshold, and a head at the right side. The current value is driven by an internal
+ * horizontal slider declared in the UI form.
+ */
 class MyBattery : public QWidget
 {
     Q_OBJECT
 
 public:
+    /**
+     * \brief Construct the battery widget.
+     * \param parent Optional parent widget.
+     */
     MyBattery(QWidget *parent = nullptr);
+    /**
+     * \brief Destructor.
+     */
     ~MyBattery();
 
 private:
@@ -56,8 +71,16 @@ private:
 
     // QWidget interface
 protected:
+    /**
+     * \brief Paint the battery (frame, level background, and head).
+     * Enables anti-aliasing and updates gradients based on current value and alarm threshold.
+     */
     void paintEvent(QPaintEvent *event) override;
 private slots:
+    /**
+     * \brief Slot connected to the internal horizontal slider to update current value.
+     * \param value New level in [0, 100].
+     */
     void on_horizontalSlider_valueChanged(int value);
 };
 #endif // MYBATTERY_H
